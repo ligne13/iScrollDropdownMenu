@@ -1,0 +1,35 @@
+{
+  "name": "@maximefreschard/iscrolldropdonwmenu",
+  "version": "1.0.0",
+  "description": "A horizontal menu with dropdowns using iScroll",
+  "main": "./dist/iScrollDropdownMenu.bundle.js",
+  "author": "Maxime Freschard <maxime@ligne13.com> (https://www.ligne13.com)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "tmp"
+  },
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack --config webpack.config.js",
+    "watch": "cross-env NODE_ENV=development webpack --config webpack.config.js --progress --watch",
+    "prod": "cross-env NODE_ENV=production webpack --config webpack.config.js -p"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.5.1",
+    "cross-env": "^5.0.0",
+    "css-loader": "^0.28.4",
+    "extract-loader": "^0.1.0",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.11.1",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.5",
+    "style-loader": "^0.18.1",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
+  },
+  "dependencies": {
+    "iscroll": "^5.2.0"
+  }
+}
