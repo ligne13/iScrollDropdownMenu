@@ -1,5 +1,5 @@
 {
-  "name": "@maximefreschard/iscrolldropdonwmenu",
+  "name": "iscrolldropdonwmenu",
   "version": "1.0.0",
   "description": "A horizontal menu with dropdowns using iScroll",
   "main": "./dist/iScrollDropdownMenu.bundle.js",
@@ -7,7 +7,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "tmp"
+    "url": "https://github.com/ligne13/iScrollDropdownMenu"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack --config webpack.config.js",

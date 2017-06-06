@@ -9,8 +9,8 @@ module.exports = {
         './src/iScrollDropdownMenu.js',
         './src/iScrollDropdownMenu.scss',
         './src/demo-basic.scss',
-        './src/demo-intralignes.scss',
-        './src/demo-rh.scss',
+        './src/demo-pink.scss',
+        './src/demo-purple.scss',
     ],
     output: {
         path: path.resolve(__dirname, 'dist'),
