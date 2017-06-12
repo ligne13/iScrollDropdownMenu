@@ -1,7 +1,10 @@
 {
   "name": "iscrolldropdownmenu",
   "description": "A horizontal menu with dropdowns using iScroll",
-  "main": "./dist/iScrollDropdownMenu.bundle.js",
+  "main": [
+    "./dist/iScrollDropdownMenu.bundle.js",
+    "./dist/iScrollDropdownMenu.css"
+  ],
   "authors": [
     "Maxime Freschard <maxime@ligne13.com> (https://www.ligne13.com)"
   ],
