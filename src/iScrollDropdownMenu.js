@@ -86,7 +86,6 @@ const iScrollDropdownMenu = (($) => {
                 $liParent.addClass('active');
                 if ($liParent.hasClass('dropdown')) {
                     var itemId = $liParent.data('id');
-                    console.log(self.$dropdownMenusWrapper);
                     self.$dropdownMenusWrapper.find('[data-id=' + itemId + ']').slideDown();
                 } else {
                     if ($(this).attr('target') =='_blank') {
