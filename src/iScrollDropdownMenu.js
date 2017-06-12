@@ -5,6 +5,7 @@ const iScrollDropdownMenu = (($) => {
     const JQUERY_NO_CONFLICT = $.fn[NAME];
 
     const defaults = {
+        scrollerClass: 'scroller',
         startAtItem: 0,
     };
 
@@ -13,7 +14,7 @@ const iScrollDropdownMenu = (($) => {
             this.config = this._getConfig(config);
             this.element = element;
             this.$element = $(this.element);
-            this.$scroller = this.$element.find('.scroller');
+            this.$scroller = this.$element.find('.' + this.config.scrollerClass);
             this.iScroll;
             this.$ul = this.$scroller.find('> ul');
             this.$items = this.$ul.find('>li');
@@ -49,7 +50,7 @@ const iScrollDropdownMenu = (($) => {
              * Timeout required to avoid bugs with iScroll late initialization...
              */
             setTimeout(function () {
-                self.$scroller.width(self.getItemsWidth());
+                self.$scroller.width(self.getItemsWidth()+1);
                 self.iScroll = new IScroll(self.element, {
                     eventPassthrough: true,
                     scrollX: true,
@@ -87,7 +88,11 @@ const iScrollDropdownMenu = (($) => {
                     var itemId = $liParent.data('id');
                     self.$dropdownMenusWrapper.find('div[data-id=' + itemId + ']').slideDown();
                 } else {
-                    location.href = this.href;
+                    if ($(this).attr('target') =='_blank') {
+                        window.open(this.href);
+                    } else {
+                        location.href = this.href;
+                    }
                 }
             });
 
