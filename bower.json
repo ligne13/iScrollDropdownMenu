@@ -1,0 +1,25 @@
+{
+  "name": "iscrolldropdownmenu",
+  "description": "A horizontal menu with dropdowns using iScroll",
+  "main": "./dist/iScrollDropdownMenu.bundle.js",
+  "authors": [
+    "Maxime Freschard <maxime@ligne13.com> (https://www.ligne13.com)"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "iScroll",
+    "menu",
+    "touch",
+    "menu",
+    "dropdowns",
+    "mobile"
+  ],
+  "homepage": "https://github.com/ligne13/iScrollDropdownMenu",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
