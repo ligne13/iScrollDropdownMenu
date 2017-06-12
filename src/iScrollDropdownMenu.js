@@ -96,6 +96,13 @@ const iScrollDropdownMenu = (($) => {
                 }
             });
 
+            // initial setup if there is an item with an active class
+            var $active = self.$items.filter('.active');
+            if ($active) {
+                $active.prev().addClass('beforeActive');
+                this.$startItem = $active;
+            }
+
         }
 
         toggleIndicator() {
