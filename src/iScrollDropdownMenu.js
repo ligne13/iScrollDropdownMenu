@@ -77,7 +77,7 @@ const iScrollDropdownMenu = (($) => {
             this.$items.find('> a').on('click', function (e) {
                 e.preventDefault();
                 e.stopPropagation();
-                self.$dropdownMenusWrapper.find('div').hide();
+                self.$dropdownMenusWrapper.find('> *').hide();
                 var $liParent = $(this).parent('li');
                 self.iScroll.scrollToElement($liParent.get(0), 500);
                 self.$items.removeClass('beforeActive');
@@ -86,7 +86,8 @@ const iScrollDropdownMenu = (($) => {
                 $liParent.addClass('active');
                 if ($liParent.hasClass('dropdown')) {
                     var itemId = $liParent.data('id');
-                    self.$dropdownMenusWrapper.find('div[data-id=' + itemId + ']').slideDown();
+                    console.log(self.$dropdownMenusWrapper);
+                    self.$dropdownMenusWrapper.find('[data-id=' + itemId + ']').slideDown();
                 } else {
                     if ($(this).attr('target') =='_blank') {
                         window.open(this.href);
