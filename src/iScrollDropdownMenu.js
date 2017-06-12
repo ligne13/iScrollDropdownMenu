@@ -7,6 +7,7 @@ const iScrollDropdownMenu = (($) => {
     const defaults = {
         scrollerClass: 'scroller',
         startAtItem: 0,
+        forceStartAtItem: true,
     };
 
     class iScrollDropdownMenu {
@@ -100,7 +101,9 @@ const iScrollDropdownMenu = (($) => {
             var $active = self.$items.filter('.active');
             if ($active.length > 0) {
                 $active.prev().addClass('beforeActive');
-                this.$startItem = $active;
+                if (!forceStartAtItem) {
+                    this.$startItem = $active;
+                }
             }
 
         }

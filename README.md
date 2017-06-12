@@ -34,7 +34,8 @@ Include Javascript and CSS files :
 $('.iScrollDropdownMenu-wrapper').iScrollDropdownMenu({
     // with default options...
     scrollerClass: 'scroller',
-    startAtItem: 0
+    startAtItem: 0,
+    forceStartAtItem: true,
 });
 ```
 
