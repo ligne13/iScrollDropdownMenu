@@ -101,7 +101,7 @@ const iScrollDropdownMenu = (($) => {
             var $active = self.$items.filter('.active');
             if ($active.length > 0) {
                 $active.prev().addClass('beforeActive');
-                if (!forceStartAtItem) {
+                if (!this.config.forceStartAtItem) {
                     this.$startItem = $active;
                 }
             }
