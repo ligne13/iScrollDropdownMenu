@@ -40,6 +40,25 @@
       }
     }
   }
+  .indicator {
+    position: absolute;
+    z-index: 2;
+    color: #000;
+    top: 0;
+    right: 0;
+    font-size: 18px;
+    text-align: center;
+    width: 30px;
+    height: 100%;
+    background: #FFF;
+    .fa {
+      cursor: pointer;
+      position: absolute;
+      top: 12px;
+      right: 2px;
+      padding: 5px;
+    }
+  }
 }
 
 .iScrollDropdownMenu-dropdowns {

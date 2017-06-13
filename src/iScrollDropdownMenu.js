@@ -51,7 +51,7 @@ const iScrollDropdownMenu = (($) => {
              * Timeout required to avoid bugs with iScroll late initialization...
              */
             setTimeout(function () {
-                self.$scroller.width(self.getItemsWidth()+1);
+                self.$scroller.width(self.getItemsWidth() + 1);
                 self.iScroll = new IScroll(self.element, {
                     eventPassthrough: true,
                     scrollX: true,
@@ -69,6 +69,10 @@ const iScrollDropdownMenu = (($) => {
                 self.indicatorLoopAnimation(10, 500);
                 self.iScroll.on('scrollStart', function () {
                     self.$indicator.fadeOut();
+                });
+                self.$indicator.on('click', function (e) {
+                    self.$indicator.fadeOut();
+                    self.iScroll.scrollToElement(self.$items.last().get(0), 1000, 0, 0, IScroll.utils.ease.back);
                 });
             }, 500);
 
@@ -89,7 +93,7 @@ const iScrollDropdownMenu = (($) => {
                     var itemId = $liParent.data('id');
                     self.$dropdownMenusWrapper.find('[data-id=' + itemId + ']').slideDown();
                 } else {
-                    if ($(this).attr('target') =='_blank') {
+                    if ($(this).attr('target') == '_blank') {
                         window.open(this.href);
                     } else {
                         location.href = this.href;
