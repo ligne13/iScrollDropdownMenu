@@ -5,9 +5,29 @@ const iScrollDropdownMenu = (($) => {
     const JQUERY_NO_CONFLICT = $.fn[NAME];
 
     const defaults = {
+        /**
+         * The class name of the element to be scrolled, containing the items
+         */
         scrollerClass: 'scroller',
+        /**
+         * The index of the item on which to set the scroll position at start
+         */
         startAtItem: 0,
+        /**
+         * If true, the scroll will start at the startAtItem value even if the active item index is not the same as the startAtItem value.
+         * If false, and if there is an active item, the iScroll will start at the active item index.
+         */
         forceStartAtItem: true,
+        /**
+         * If forceStartAtItem is true, the startAtItem will be ignored if the active item index is greater than this value
+         * Example : If the active item is the first item (eg : Home button), the iScroll can still be forced to start at the item index set with startAtItem value.
+         */
+        forceStartAtItemIfActiveIsGreaterThan: 0,
+        /**
+         * The indicator will not be displayed if the active item index is greater than this value, matching an item index.
+         * This allows to hide the indicator if the active item is the last of the items, and if the indicator overlaps the items.
+         */
+        hideIndicatorIfActiveItemIsGreaterThan: 0,
     };
 
     class iScrollDropdownMenu {
@@ -103,9 +123,10 @@ const iScrollDropdownMenu = (($) => {
 
             // initial setup if there is an item with an active class
             var $active = self.$items.filter('.active');
+            var activeIndex = $active.index();
             if ($active.length > 0) {
                 $active.prev().addClass('beforeActive');
-                if (!this.config.forceStartAtItem) {
+                if (!this.config.forceStartAtItem || (this.config.forceStartAtItem && activeIndex > this.config.forceStartAtItemIfActiveIsGreaterThan)) {
                     this.$startItem = $active;
                 }
             }
@@ -113,7 +134,9 @@ const iScrollDropdownMenu = (($) => {
         }
 
         toggleIndicator() {
-            if (!this.iScroll.hasHorizontalScroll) {
+            var $active = this.$items.filter('.active');
+            var activeIndex = $active.index();
+            if (!this.iScroll.hasHorizontalScroll || activeIndex > this.config.hideIndicatorIfActiveItemIsGreaterThan) {
                 this.$indicator.hide();
             } else {
                 this.$indicator.show();

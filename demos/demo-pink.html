@@ -79,7 +79,10 @@
 <script>
     $(function () {
         $('.iScrollDropdownMenu-wrapper').iScrollDropdownMenu({
-            startAtItem: 1
+            startAtItem: 1,
+            forceStartAtItem: true,
+            forceStartAtItemIfActiveIsGreaterThan: 0,
+            hideIndicatorIfActiveItemIsGreaterThan: 13
         });
     })
 </script>
