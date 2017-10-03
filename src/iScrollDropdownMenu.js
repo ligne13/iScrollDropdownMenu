@@ -54,7 +54,7 @@ const iScrollDropdownMenu = (($) => {
 
             this.$itemsDropdowns.each(function () {
                 // check if all <li> are hidden (and if so, we do not add the data attributes on the element. And the click on it will be a normal href click.)
-                if ($(this).find('.dropdown-menu li:visible').length > 0) {
+                if ($(this).find('.dropdown-menu li[style*="display:none"]').length === 0) {
                     var itemId = 'item' + $(this).index();
                     $(this).data('id', itemId).attr('data-id', itemId);
                     $(this).find('.dropdown-menu').data('parent', itemId).attr('data-id', itemId);
