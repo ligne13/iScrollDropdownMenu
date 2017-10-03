@@ -53,9 +53,12 @@ const iScrollDropdownMenu = (($) => {
             var self = this;
 
             this.$itemsDropdowns.each(function () {
-                var itemId = 'item' + $(this).index();
-                $(this).data('id', itemId).attr('data-id', itemId);
-                $(this).find('.dropdown-menu').data('parent', itemId).attr('data-id', itemId);
+                // check if all <li> are hidden (and if so, we do not add the data attributes on the element. And the click on it will be a normal href click.)
+                if ($(this).find('.dropdown-menu li:visible').length > 0) {
+                    var itemId = 'item' + $(this).index();
+                    $(this).data('id', itemId).attr('data-id', itemId);
+                    $(this).find('.dropdown-menu').data('parent', itemId).attr('data-id', itemId);
+                }
             });
             this.$dropdownMenusWrapper = $('<div class="iScrollDropdownMenu-dropdowns"></div>');
             this.$element.after(this.$dropdownMenusWrapper);
@@ -109,10 +112,12 @@ const iScrollDropdownMenu = (($) => {
                 self.$items.not($liParent).removeClass('active');
                 $liParent.prev().addClass('beforeActive');
                 $liParent.addClass('active');
-                if ($liParent.hasClass('dropdown')) {
+                if ($liParent.hasClass('dropdown') && $liParent.data('id')) {
+                    // if the parent .dropdown has the data-id
                     var itemId = $liParent.data('id');
                     self.$dropdownMenusWrapper.find('[data-id=' + itemId + ']').slideDown();
                 } else {
+                    // if not, or if it not a .dropdown, this is a normal href click.
                     if ($(this).attr('target') == '_blank') {
                         window.open(this.href);
                     } else {
