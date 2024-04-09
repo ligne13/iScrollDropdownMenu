@@ -40,7 +40,7 @@ const iScrollDropdownMenu = (($) => {
             this.$ul = this.$scroller.find('> ul');
             this.$items = this.$ul.find('>li');
             this.$itemsDropdowns = this.$items.filter('.dropdown');
-            this.$dropdownMenus = this.$itemsDropdowns.find('.dropdown-menu');
+            this.$dropdownMenus = this.$itemsDropdowns.find('>.dropdown-menu');
             this.$dropdownMenusWrapper;
             this.$startItem = this.$ul.find('li:eq(' + this.config.startAtItem + ')');
             this.$indicator = this.$element.find('.indicator');
